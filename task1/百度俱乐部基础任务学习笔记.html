@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>百度俱乐部基础任务学习笔记</title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 id="百度俱乐部基础任务学习笔记" data-anchor-id="0wqg">百度俱乐部基础任务学习笔记</h1><p data-anchor-id="bzh0"><code>个人</code></p><hr><div class="md-section-divider"></div><h2 id="linux的安装" data-anchor-id="6a39"><strong><em>Linux的安装</em></strong></h2><div class="md-section-divider"></div><h3 id="1安装类型-虚拟机vmware-workstation-15-player" data-anchor-id="6c4i"><strong><em>1.</em></strong>安装类型 ：虚拟机（VMware Workstation 15 Player）</h3><div class="md-section-divider"></div><h3 id="2尝试安装的发行版" data-anchor-id="wdsx"><strong><em>2.</em></strong>尝试安装的发行版  ：</h3><table class="table table-striped-white table-bordered" data-anchor-id="o2rl">
+<thead>
+<tr>
+ <th>发行版</th>
+ <th>CentOS</th>
+ <th>RedHat</th>
+ <th>Ubuntu（目前使用）</th>
+</tr>
+</thead>
+<tbody><tr>
+ <td>版本</td>
+ <td>CentOS 6.1</td>
+ <td>安装失败</td>
+ <td>18.04</td>
+</tr>
+</tbody></table><div class="md-section-divider"></div><h3 id="3安装途径ubuntu-官网下载" data-anchor-id="yqk2"><strong><em>3.</em></strong>安装途径(Ubuntu) : <a title="Ubuntu官网" href="https://www.ubuntu.com/download/desktop" target="_blank">官网下载</a></h3><div class="md-section-divider"></div><h3 id="4安装过程中遇到的困难" data-anchor-id="sogw"><strong><em>4.</em></strong>安装过程中遇到的困难  ：</h3><p data-anchor-id="p46o">下载的是Ubuntu64位的镜像，选择版本时却选择的只是Ubuntu，导致出现了以下报错： <br>
+This kernel requires an x86-64 CPU，but only detected an i686 CPU. <br>
+后来通过百度进行解决。</p><div class="md-section-divider"></div><h2 id="linux上git的使用" data-anchor-id="jigv"><strong><em>Linux上Git的使用</em></strong></h2><div class="md-section-divider"></div><h3 id="1-github账户注册" data-anchor-id="q4af"><strong><em>1.</em></strong> GitHub账户注册 ：</h3><p data-anchor-id="rnyv">访问<a title="GitHub官网" href="https://github.com" target="_blank">GitHub官网</a>进行注册</p><div class="md-section-divider"></div><h3 id="2-git的安装" data-anchor-id="ial7"><strong><em>2.</em></strong> Git的安装  ：</h3><p data-anchor-id="2rhk"><em>a.</em> 打开终端 <br>
+<em>b.</em> 输入<code>git</code>的指令检验系统是否安装git <br>
+<em>c.</em> 若无则输入<code>sudo apt-get install git</code>进行安装</p><div class="md-section-divider"></div><h3 id="3-git配置" data-anchor-id="yul8"><strong><em>3.</em></strong> Git配置 ：</h3><p data-anchor-id="ymwz">在终端中输入指令 <br>
+<code>git config --global user.name"你的GitHub用户名"</code> <br>
+<code>git config --global user.email"相应的邮箱"</code> <br>
+进行配置</p><div class="md-section-divider"></div><h3 id="4-创建一个本地git库" data-anchor-id="7std"><strong><em>4.</em></strong> 创建一个本地git库 ：</h3><p data-anchor-id="aee4"><em>a.</em> 创建一个文件夹 <br>
+<em>b.</em> 在终端输入  <br>
+<code>cd /home/系统用户名/新建的文件夹名</code>进入文件夹 <br>
+<em>c.</em> 输入<code>git init</code>完成创建</p><div class="md-section-divider"></div><h3 id="5-将本地文件提交至git仓库" data-anchor-id="7liy"><strong><em>5.</em></strong> 将本地文件提交至git仓库 ：</h3><p data-anchor-id="avgp"><em>a.</em> 先通过<code>git add ***</code> <br>
+对某个文件进行跟踪以便提交， <br>
+<em>b.</em> 然后使用<code>git commit (-a)(-m "***")</code>进行提交</p><p data-anchor-id="skcq">-a ：跳过使用c暂存区域，直接将文件提交； <br>
+-m ：直接编辑提交说明。</p><div class="md-section-divider"></div><h3 id="6-把本地git仓库上传至github" data-anchor-id="hf1r"><strong><em>6.</em></strong> 把本地git仓库上传至GitHub</h3><p data-anchor-id="vo8z"><em>a.</em> 创建验证用的公钥，即生成ssh key <br>
+输入<code>ssh-keygen -C "邮箱地址" -t rsa</code>  </p><p data-anchor-id="78qt"><em>b.</em> 得到ssh key并复制 <br>
+使用命令<code>cd ~/.ssh</code>进入~/ssh文件夹 <br>
+然后输入<code>gedit id_rsa.pub</code>（注意要加上.pub） <br>
+复制其中所有内容</p><p data-anchor-id="s4s8"><em>c.</em> 上传公钥 <br>
+登陆到<a title="GitHub官网" href="https://github.com" target="_blank">GitHub</a>， <br>
+进入<code>Settings</code>  <br>
+选择<code>SSH and GPG Keys</code> <br>
+点击<code>New SSH Key</code> <br>
+Title任取，将复制的ssh key粘贴到key那一栏 </p><p data-anchor-id="2v5h"><em>d.</em> 测试连接是否通畅 <br>
+在~/ssh文件夹中使用一下命令进行检验 <br>
+<code>ssh -T git@github.com</code> <br>
+若得到<code>Hi XXX You've successfully authenticated, but GitHub does not provide shell access.</code> 说明你连接成功了</p><p data-anchor-id="fng8"><em>e.</em> 在GitHub上创建一个项目 <br>
+ 在GitHub首页找到"New Repository" <br>
+填写项目信息：</p><p data-anchor-id="xdak">project name: </p><p data-anchor-id="p48z">description : </p><p data-anchor-id="1dbi">点击“Create Repository” 完成创建</p><p data-anchor-id="poc6"><em>f.</em> 将本地git库进行推送 <br>
+通过<code>cd /home/系统用户名/git库名称</code>进入到git库文件夹 <br>
+然后 <code>git remote add origin git@github.com:defnngj/hello-world.git   //连接远程github项目 <br>
+git push -u origin master   //将本地项目更新到github项目上去</code> <br>
+即可完成推送。</p><div class="md-section-divider"></div><h3 id="7-遇到的困难" data-anchor-id="s27s"><strong><em>7.</em></strong> 遇到的困难</h3><p data-anchor-id="xtyv">在执行 <br>
+<code>git push origin master</code>时，</p><p data-anchor-id="boc0">错误提示：error: 无法推送一些引用到 '<a href="https://github.com/XXX" target="_blank">https://github.com/XXX</a>' <br>
+提示：更新被拒绝，因为远程版本库包含您本地尚不存在的提交。这通常是因为另外 <br>
+提示：一个版本库已向该引用进行了推送。再次推送前，您可能需要先整合远程变更 <br>
+提示：（如 'git pull ...'）。 <br>
+提示：详见 'Git push --help' 中的 'Note about fast-forwards' 小节。</p><p data-anchor-id="pv9t">解决办法： <br>
+<em>a.</em> <br>
+<code>git pull origin master // 先把远程服务器github上面的文件拉下来，再push 上去</code> <br>
+<em>b.</em> 通过<code>git push -u origin +master</code>强行上传</p><div class="md-section-divider"></div><h2 id="c语言编写排序算法的尝试" data-anchor-id="y0th"><strong><em>C语言编写排序算法的尝试</em></strong></h2><div class="md-section-divider"></div><h3 id="1-操作系统-windows" data-anchor-id="uwi8"><strong><em>1.</em></strong> 操作系统 ：Windows</h3><div class="md-section-divider"></div><h3 id="2-编译器-code-blocks" data-anchor-id="uted"><strong><em>2.</em></strong> 编译器 ：code blocks</h3><div class="md-section-divider"></div><h3 id="3-排序算法类型-冒泡排序由于无多少基础所以选择了最简单的冒泡排序" data-anchor-id="o58v"><strong><em>3.</em></strong> 排序算法类型 ：冒泡排序（由于无多少基础，所以选择了最简单的冒泡排序）</h3><div class="md-section-divider"></div><h4 id="a-定义-冒泡排序是最简单的排序方法理解起来容易虽然它的计算步骤比较多不是最快的但它是最基本的初学者一定要掌握" data-anchor-id="sb6b"><em>a.</em> 定义 ：冒泡排序是最简单的排序方法，理解起来容易。虽然它的计算步骤比较多，不是最快的，但它是最基本的，初学者一定要掌握。</h4><p data-anchor-id="7esd">冒泡排序的原理是：从左到右，相邻元素进行比较。每次比较一轮，就会找到序列中最大的一个或最小的一个。这个数就会从序列的最右边冒出来。</p><p data-anchor-id="e20i">以从小到大排序为例，第一轮比较后，所有数中最大的那个数就会浮到最右边；第二轮比较后，所有数中第二大的那个数就会浮到倒数第二个位置……就这样一轮一轮地比较，最后实现从小到大排序。</p><div class="md-section-divider"></div><h4 id="b-编译成果" data-anchor-id="w28u"><em>b.</em> 编译成果 ：</h4><p data-anchor-id="wtp6"><code>#include &lt;stdio.h&gt;</code></p><p data-anchor-id="9ijr"><code>int main(void) <br>
+{ <br>
+    int a[10] = {3,2,5,4,9,7,1,8,0,6}; <br>
+    int n;  //用于存放数组a中元素个数 <br>
+    int i;  //比较的轮数 <br>
+    int j;  //每轮比较的次数 <br>
+    int temp;  //交换数据时用于存放中间数据 <br>
+    n = sizeof(a) / sizeof(a[0]);  //a[0]是int型，占4字节，因而总的字节数除以4等于元素个数</code></p><pre data-anchor-id="xoxp"><code>for (i=0; i&lt;n-1; ++i)  //比较n-1轮
+{
+    for (j=0; j&lt;n-1-i; ++j)  //每轮比较n-1-i次
+    {
+        if (a[j] &lt; a[j+1])
+            {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+    }
+}
+for (i=0; i&lt;n; ++i)
+{
+    printf("%d",a[i]);
+}
+return 0;
+</code></pre><p data-anchor-id="8htj">}</p></div>
+</body>
+</html>
